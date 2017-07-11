@@ -24,7 +24,7 @@ For a dockerized `boinccmd` command to control this client, see the
 
 ## Pull From DockerHub
 
-    docker pull laurentmalvert/docker-boinc
+    docker pull apicht/boinc
 
 ## Build It Yourself
 
@@ -38,7 +38,7 @@ For a dockerized `boinccmd` command to control this client, see the
     docker run          \
            --name boinc \
            -d           \
-           laurentmalvert/docker-boinc --allow_remote_gui_rpc
+           apicht/boinc --allow_remote_gui_rpc
 
 ### Remote Control
 
@@ -70,7 +70,7 @@ Next you need to install **the same version** of Virtualbox in your container, t
 contains the following:
 
 ```
-FROM laurentmalvert/docker-boinc
+FROM apicht/boinc
 RUN apt-get update \
     && apt-get -y install wget \
     && wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | apt-key add - \
