@@ -27,10 +27,7 @@ RUN set -x \
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
-EXPOSE    \
-    31416 \
-    80    \
-    443
+EXPOSE 31416
 
 WORKDIR /var/lib/boinc-client
 
