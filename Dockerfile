@@ -1,8 +1,7 @@
-MAINTAINER Laurent Malvert <laurent.malvert@gmail.com>
 FROM debian:stretch
 
 LABEL                                                                      \
-    Vendor="Laurent Malvert"                                               \
+    Maintainer="https://github.com/apicht/docker-boinc"                                               \
     Description="A base container image for lightweight BOINC clients"     \
     Version="stretch_7.6.33"                                                \
     Boinc-Version="7.6.33"                                                 \
