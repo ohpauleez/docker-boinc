@@ -29,6 +29,7 @@ COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 EXPOSE 31416
 
+VOLUME ["/var/lib/boinc-client"]
 WORKDIR /var/lib/boinc-client
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
