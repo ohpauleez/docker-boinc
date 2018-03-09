@@ -1,7 +1,7 @@
 FROM debian:stretch
 
 LABEL                                                                      \
-    Maintainer="https://github.com/apicht/docker-boinc"                                               \
+    Maintainer="https://github.com/ohpauleez/docker-boinc"                                               \
     Description="A base container image for lightweight BOINC clients"     \
     Version="stretch_7.6.33"                                                \
     Boinc-Version="7.6.33"                                                 \
@@ -26,7 +26,7 @@ RUN set -x \
     && rm -rf /var/lib/apt/lists/*
 
 RUN userdel -r boinc \
-    && adduser --uid 9001 --disabled-password --gecos "" boinc 
+    && adduser --uid 9001 --disabled-password --gecos "" boinc
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
