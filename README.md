@@ -28,7 +28,7 @@ For a dockerized `boinccmd` command to control this client, see the
 
 ## Build It Yourself
 
-    docker -t boinc .
+    docker build -t ohpauleez/boinc-client:1.0 .
 
 ## Usage
 
@@ -36,7 +36,7 @@ For a dockerized `boinccmd` command to control this client, see the
 
     # start the boinc-client, allowing connections from any host
     docker run          \
-           --name boinc \
+           --name boinc-client \
            -d           \
            apicht/boinc --allow_remote_gui_rpc
 
@@ -55,7 +55,7 @@ To persist data add the `-v /path/to/host/directory:/var/lib/boinc-client` flag 
 ### Configuration persistence
 
 To use a persistent configuration you can either mount `/etc/boinc-client` as a volume or you can mount /var/lib/boinc-client
-as a volume and add your configuration files to that directory. 
+as a volume and add your configuration files to that directory.
 
 If you want to extract the default configuration files run the container without a volume and run `docker cp boinc:/etc/boinc-client /path/to/copy/to`
 
@@ -80,7 +80,7 @@ RUN apt-get update \
 
 Replacing `virtualbox-5.1` with whatever version you installed on your host machine.
 
-You then need to add the `--device=/dev/vboxdrv` flag to your docker run command i.e. 
+You then need to add the `--device=/dev/vboxdrv` flag to your docker run command i.e.
 `/usr/bin/docker run --device=/dev/vboxdrv --name boinc yourimage --allow_remote_gui_rpc`
 
 ## Possible Improvements ?
