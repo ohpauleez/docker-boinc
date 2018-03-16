@@ -3,4 +3,5 @@
 
 *.simg
 *.img
+Makefile.extra
 
