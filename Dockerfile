@@ -10,6 +10,8 @@ LABEL                                                                      \
 # -- BOINC ---------------------------------------------------------------
 
 ENV GOSU_VERSION 1.10
+ENV DATA_PATH /var/lib/boinc-client
+
 RUN set -x \
     && apt-get update && apt-get install -y --no-install-recommends boinc-client ca-certificates dirmngr gnupg wget && rm -rf /var/lib/apt/lists/* \
     && dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')" \
@@ -28,6 +30,10 @@ RUN set -x \
 RUN userdel -r boinc \
     && adduser --uid 9001 --disabled-password --gecos "" boinc
 
+RUN mkdir -p /dev/input/mice \
+    && mkdir -p $DATA_PATH \
+    && chown -R boinc:boinc $DATA_PATH
+
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 EXPOSE 31416
@@ -37,3 +43,4 @@ WORKDIR /var/lib/boinc-client
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["boinc"]
+
