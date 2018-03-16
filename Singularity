@@ -9,7 +9,7 @@ From: debian:stretch
     Base-Version debian:stretch
 
 %files
-    docker-entrypoint.sh
+    boinc-entrypoint.sh
 
 %environment
     GOSU_VERSION=1.10
@@ -39,8 +39,8 @@ From: debian:stretch
     adduser --uid 9001 --disabled-password --gecos "" boinc
 
 %runscript
-    exec /docker-entrypoint.sh boinc "$@"
+    exec /boinc-entrypoint.sh boinc "$@"
 
 %startscript
-    exec /docker-entrypoint.sh boinc "$@"
+    exec /boinc-entrypoint.sh boinc "$@"
 

@@ -34,13 +34,13 @@ RUN mkdir -p /dev/input/mice \
     && mkdir -p $DATA_PATH \
     && chown -R boinc:boinc $DATA_PATH
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
+COPY boinc-entrypoint.sh /boinc-entrypoint.sh
 
 EXPOSE 31416
 
 VOLUME ["/var/lib/boinc-client"]
 WORKDIR /var/lib/boinc-client
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/boinc-entrypoint.sh"]
 CMD ["boinc"]
 
